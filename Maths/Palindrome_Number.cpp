@@ -5,17 +5,19 @@ using namespace std;
 
 int main()
 {
-    int x, N = 0;
-    cout << "Enter a Number = ";
+    int x;
+    cout << "Enter the Number: ";
     cin >> x;
+    int s = 0, n = x;
     bool b = false;
-    while (x > 0)
+    while (n > 0)
     {
-        int r = x % 10;
-        N = (N * 10) + r;
-        x = x / 10;
+        if (s < pow(-2, 31) / 10 || s > (pow(2, 31) - 1) / 10)
+            return 0;
+        s = s * 10 + (n % 10);
+        n = n / 10;
     }
-    if (N == x)
+    if (s == x)
         b = true;
     if (b)
         cout << "The Number is a Palindrome." << endl;
